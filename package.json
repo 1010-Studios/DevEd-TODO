@@ -1,0 +1,24 @@
+{
+	"name": "deved-todo",
+	"version": "1.0.0",
+	"description": "ToDo List -ODIN PROJECT -DevEd Base",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/1010-Studios/DevEd-TODO.git"
+	},
+	"author": "Ty",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/1010-Studios/DevEd-TODO/issues"
+	},
+	"homepage": "https://github.com/1010-Studios/DevEd-TODO#readme",
+	"devDependencies": {
+		"webpack": "^5.20.2",
+		"webpack-cli": "^4.5.0"
+	}
+}

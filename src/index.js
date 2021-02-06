@@ -1,10 +1,9 @@
 import localStorage from './modules/localStorage';
-import todoRender from './modules/todoRender';
+import todoRender from './modules/DOM/todoRender';
 import todoFactory from './modules/todoFactory';
+// import createToDo from './modules/DOM/createTodo';
 
 //Selectors
-console.log(`todoNew`);
-
 const todoInput = document.querySelector(`.todo-input`);
 const todoButton = document.querySelector(`.todo-button`);
 const todoList = document.querySelector(`.todo-list`);
@@ -16,14 +15,26 @@ document.addEventListener('DOMContentLoaded', localStorage.readStorage);
 todoButton.addEventListener('click', addToDo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('click', filterToDo);
-todoNew.addEventListener(`click`, testObject);
+todoNew.addEventListener('click', testObject);
+
+//DOM Handler
+const insertpoint = document.querySelector('.modal-new-todo');
+
+//close button
+const closeButton = document.querySelector('.modal-close');
+closeButton.addEventListener('click', toggleModal);
+
+function toggleModal(event) {
+	event.preventDefault();
+	insertpoint.classList.toggle('show-modal');
+}
 
 //Functions
 const taskArray = [];
 
-function testObject() {
-	console.log('Here');
+function testObject(event) {
 	// event.preventDefault();
+	console.log('Here');
 	taskArray.push(
 		todoFactory(`TestTitle`, `Descriptor!`, `Misc Project`, `May 2nd`, `High`)
 	);
@@ -32,10 +43,11 @@ function testObject() {
 
 function addToDo(event) {
 	//prevent form from submitting
-	event.preventDefault();
-	todoRender(todoInput.value);
+	// event.preventDefault();
+	toggleModal(event);
+	// localStorage.writeStorage(todoInput.value);
 	//Clear input
-	todoInput.value = '';
+	// todoInput.value = '';
 }
 
 function deleteCheck(e) {

@@ -1,7 +1,7 @@
 const renderItem = (todo) => {
 	const todoList = document.querySelector(`.todo-list`);
-
 	const toDoDiv = document.createElement('div');
+
 	toDoDiv.classList.add('todo');
 
 	const newToDo = document.createElement('li');
@@ -9,9 +9,6 @@ const renderItem = (todo) => {
 	newToDo.innerText = todo;
 
 	toDoDiv.appendChild(newToDo);
-
-	//Save todo to local
-	localStorage.writeStorage(todoInput.value);
 
 	//Checkmark Button
 	const completedBTN = document.createElement('button');

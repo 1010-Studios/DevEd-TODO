@@ -1,4 +1,4 @@
-import todoRender from `./todoRender`;
+import todoRender from './DOM/todoRender';
 
 const writeStorage = (todo) => {
 	let todos;
@@ -9,20 +9,21 @@ const writeStorage = (todo) => {
 	}
 	todos.push(todo);
 	localStorage.setItem('todos', JSON.stringify(todos));
+	todoRender(todo);
 };
 
 const readStorage = () => {
 	const todoList = document.querySelector(`.todo-list`);
-
 	let todos;
+
 	if (localStorage.getItem(`todos`) === null) {
 		todos = [];
 	} else {
 		todos = JSON.parse(localStorage.getItem(`todos`));
-	};
+	}
 
-    todos.forEach(function (todo) {
-        todoRender(todo);
+	todos.forEach(function (todo) {
+		todoRender(todo);
 	});
 };
 

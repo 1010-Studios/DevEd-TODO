@@ -1,7 +1,7 @@
-import localStorage from './modules/localStorage';
+import localStorage from './modules/todohandlers/localStorage';
 import todoRender from './modules/DOM/todoRender';
-import todoFactory from './modules/todoFactory';
-import createToDo from './modules/createTodo';
+import todoFactory from './modules/todohandlers/todoFactory';
+import createToDo from './modules/todohandlers/createTodo';
 
 //Selectors
 const todoInput = document.querySelector(`.todo-input`);

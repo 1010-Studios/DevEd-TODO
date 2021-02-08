@@ -8,6 +8,7 @@ const createTodo = () => {
 	const dueDate = document.querySelector('#dueDate');
 	const priority = document.getElementsByName('priority');
 
+	//Obtain priority radio button setting
 	let pri;
 	for (let i = 0; i < priority.length; i++) {
 		if (priority[i].checked) pri = priority[i].value;
@@ -17,11 +18,11 @@ const createTodo = () => {
 		todoFactory(title.value, desc.value, project.value, dueDate.value, pri)
 	);
 
-	console.log(`---${priority}`);
-
-	console.log(
-		todoFactory(title.value, desc.value, project.value, dueDate.value, pri)
-	);
+	//Reset
+	title.value = '';
+	desc.value = '';
+	project.value = '';
+	dueDate.value = '';
 };
 
 export default createTodo;

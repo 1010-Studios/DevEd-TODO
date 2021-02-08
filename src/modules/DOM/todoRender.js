@@ -3,19 +3,25 @@ const renderItem = (todo) => {
 	const toDoDiv = document.createElement('div');
 
 	toDoDiv.classList.add('todo');
-
-	//Created, Title, Project, Duedate
-	//Description, Priority
+	//Priority
+	toDoDiv.classList.add(`priority--${todo.priority}`);
 
 	const todoCreated = `
 	<div class="todo-top">
-	Date Created: ${todo.createDate} Due Date: ${todo.dueDate}
+		<span class="createDate">Created: ${todo.createDate}</span> 
+		<span class="dueDate">Due: ${todo.dueDate}</span>
 	</div>
 	<div class="todo-mid">
-	${todo.title} ${todo.priority}
+		<div class="div-title">
+			<span class="title">${todo.title}</span>
+		</div>
+		<div class="project-priority">
+			<span class="project">${todo.project}</span>
+			<span class="priority"> ${todo.priority}</span>
+		</div>
 	</div>
 	<div class="todo-bottom">
-	${todo.desc}
+		<span class="desc">${todo.desc}</span>
 	</div>
 	`;
 

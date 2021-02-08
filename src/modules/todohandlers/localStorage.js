@@ -1,4 +1,4 @@
-import todoRender from './DOM/todoRender';
+import todoRender from '../DOM/todoRender';
 
 const writeStorage = (todo) => {
 	let todos;

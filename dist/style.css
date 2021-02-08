@@ -157,6 +157,13 @@ select {
 	/* height: 10vh; */
 }
 
+.modal-new-todo-text {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2.2rem;
+	justify-content: space-between;
+}
+
 .todoCreate-form {
 	position: relative;
 	z-index: 999;
@@ -171,7 +178,7 @@ select {
 
 .todoCreate-form-radios {
 	display: flex;
-	/* flex-direction: column; */
+	flex-direction: column;
 	align-items: center;
 }
 
@@ -185,4 +192,10 @@ select {
 	top: 0;
 	right: -6px;
 	background-color: black;
+}
+
+.todo-button-create {
+	width: 4rem;
+	border-radius: 15px;
+	margin: 0.6rem;
 }

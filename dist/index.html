@@ -27,33 +27,45 @@
 				<button class="modal-close">
 					<i class="fas fa-window-close"></i>
 				</button>
-				<input type="text" id="title" placeholder="title" />
-				<input type="text" id="desc" placeholder="description" />
-				<input type="text" id="project" placeholder="project" />
+				<div class="modal-new-todo-text">
+					<input type="text" id="title" placeholder="title" />
+					<input type="text" id="desc" placeholder="description" />
+					<input type="text" id="project" placeholder="project" />
+				</div>
 				<div class="todoCreate-form-radios">
 					<label for="dueDate">DueDate: </label>
-					<input type="date" id="dueDate" /><br />
-					<input type="radio" id="normal" name="priority" value="normal" />
-					<label for="normal">Normal</label><br />
-					<input type="radio" id="high" name="priority" value="high" />
-					<label for="high">High</label><br />
+					<input type="date" id="dueDate" /> <br />
+					<span> Priority:</span>
+					<div>
+						<input
+							type="radio"
+							id="normal"
+							name="priority"
+							value="normal"
+							class="priority"
+							checked
+						/>
+						<label for="normal">Normal</label><br />
+						<input
+							type="radio"
+							id="high"
+							name="priority"
+							value="high"
+							class="priority"
+						/>
+						<label for="high">High</label><br />
+					</div>
+					<button class="todo-button-create" typle="submit">
+						<i class="fas fa-plus-square"></i>
+					</button>
 				</div>
 			</form>
 		</div>
-		<form>
-			<input type="text" class="todo-input" />
-			<button class="todo-button" typle="submit">
-				<i class="fas fa-plus-square"></i>
-			</button>
-			<div class="select">
-				<select name="todos" class="filter-todo">
-					<option value="all">All</option>
-					<option value="completed">Completed</option>
-					<option value="uncompleted">Uncompleted</option>
-				</select>
-			</div>
-		</form>
-		<button class="todo-new" id="todo-new">New</button>
+		<button class="todo-button" typle="submit">
+			<i class="fas fa-plus-square"> New Task</i>
+		</button>
+
+		<!-- <button class="todo-new" id="todo-new">New</button> -->
 		<div class="todo-container">
 			<ul class="todo-list"></ul>
 		</div>

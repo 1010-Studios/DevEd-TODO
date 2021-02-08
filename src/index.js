@@ -1,20 +1,18 @@
 import localStorage from './modules/localStorage';
 import todoRender from './modules/DOM/todoRender';
 import todoFactory from './modules/todoFactory';
-// import createToDo from './modules/DOM/createTodo';
+import createToDo from './modules/createTodo';
 
 //Selectors
 const todoInput = document.querySelector(`.todo-input`);
 const todoButton = document.querySelector(`.todo-button`);
 const todoList = document.querySelector(`.todo-list`);
-const filterOption = document.querySelector(`.filter-todo`);
-const todoNew = document.querySelector(`.todo-new`);
+const todoNew = document.querySelector(`.todo-button-create`);
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', localStorage.readStorage);
 todoButton.addEventListener('click', addToDo);
 todoList.addEventListener('click', deleteCheck);
-filterOption.addEventListener('click', filterToDo);
 todoNew.addEventListener('click', testObject);
 
 //DOM Handler
@@ -33,12 +31,12 @@ function toggleModal(event) {
 const taskArray = [];
 
 function testObject(event) {
-	// event.preventDefault();
+	event.preventDefault();
 	console.log('Here');
-	taskArray.push(
-		todoFactory(`TestTitle`, `Descriptor!`, `Misc Project`, `May 2nd`, `High`)
-	);
+	// createToDo();
+	console.log(createToDo());
 	console.log(taskArray);
+	toggleModal(event);
 }
 
 function addToDo(event) {
@@ -67,30 +65,4 @@ function deleteCheck(e) {
 		const todo = item.parentElement;
 		todo.classList.toggle('completed');
 	}
-}
-
-function filterToDo(e) {
-	console.log(`Hi!`);
-	const todos = todoList.childNodes;
-	todos.forEach(function (todo) {
-		switch (e.target.value) {
-			case 'all':
-				todo.style.display = 'flex';
-				break;
-			case `completed`:
-				if (todo.classList.contains(`completed`)) {
-					todo.style.display = 'flex';
-				} else {
-					todo.style.display = 'none';
-				}
-				break;
-			case `uncompleted`:
-				if (todo.classList.contains(`completed`)) {
-					todo.style.display = 'none';
-				} else {
-					todo.style.display = 'flex';
-				}
-				break;
-		}
-	});
 }

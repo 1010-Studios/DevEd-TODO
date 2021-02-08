@@ -4,9 +4,24 @@ const renderItem = (todo) => {
 
 	toDoDiv.classList.add('todo');
 
+	//Created, Title, Project, Duedate
+	//Description, Priority
+
+	const todoCreated = `
+	<div class="todo-top">
+	Date Created: ${todo.createDate} Due Date: ${todo.dueDate}
+	</div>
+	<div class="todo-mid">
+	${todo.title} ${todo.priority}
+	</div>
+	<div class="todo-bottom">
+	${todo.desc}
+	</div>
+	`;
+
 	const newToDo = document.createElement('li');
 	newToDo.classList.add('todo-item');
-	newToDo.innerText = todo;
+	newToDo.innerHTML = todoCreated;
 
 	toDoDiv.appendChild(newToDo);
 

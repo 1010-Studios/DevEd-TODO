@@ -4,7 +4,6 @@ const renderItem = (todo) => {
 
 	//Rendering Dates
 	const locale = navigator.language;
-	console.log(locale);
 	const dueDate = new Date(todo.dueDate).toLocaleDateString(locale);
 	const created = new Date(todo.createDate).toLocaleDateString(locale);
 

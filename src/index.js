@@ -31,10 +31,10 @@ const taskArray = [];
 
 function testObject(event) {
 	// event.preventDefault();
-	console.log('Here');
-	// createToDo();
-	console.log(createToDo());
-	console.log(taskArray);
+	// console.log('Here');
+	createToDo();
+	// console.log(createToDo());
+	// console.log(taskArray);
 	toggleModal(event);
 }
 

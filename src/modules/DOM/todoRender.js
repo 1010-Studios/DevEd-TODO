@@ -17,7 +17,7 @@ const renderItem = (todo) => {
 		</div>
 		<div class="project-priority">
 			<span class="project">${todo.project}</span>
-			<span class="priority"> ${todo.priority}</span>
+			<span class="priority"> ${todo.priority} Priority</span>
 		</div>
 	</div>
 	<div class="todo-bottom">

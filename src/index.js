@@ -1,10 +1,8 @@
 import localStorage from './modules/todohandlers/localStorage';
-import todoRender from './modules/DOM/todoRender';
-import todoFactory from './modules/todohandlers/todoFactory';
 import createToDo from './modules/todohandlers/createTodo';
 
 //Selectors
-const todoInput = document.querySelector(`.todo-input`);
+const background = document.querySelector('body');
 const todoButton = document.querySelector(`.todo-button`);
 const todoList = document.querySelector(`.todo-list`);
 const todoNew = document.querySelector(`.todo-button-create`);
@@ -25,6 +23,7 @@ closeButton.addEventListener('click', toggleModal);
 function toggleModal(event) {
 	event.preventDefault();
 	insertpoint.classList.toggle('show-modal');
+	todoList.classList.toggle(`blur`);
 }
 
 //Functions

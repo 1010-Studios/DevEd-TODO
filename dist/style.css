@@ -8,6 +8,7 @@ body {
 	background-image: linear-gradient(120deg, #e2c35d, #fda085);
 	font-family: 'Poppins', sans-serif;
 	min-height: 100vh;
+	overflow: hidden;
 }
 
 header {
@@ -15,10 +16,6 @@ header {
 	color: white;
 	font-size: 1.5rem;
 	flex-direction: column;
-}
-
-header,
-form {
 	min-height: 5vh;
 	max-height: 200px;
 	display: flex;
@@ -26,12 +23,17 @@ form {
 	justify-content: center;
 }
 
-/*Buttons*/
+/*
+---------------------------------------
+---------------Buttons-----------------
+---------------------------------------
+*/
 
 .trash-btn,
 .complete-btn,
 .modal-close,
-.todo-button-create {
+.todo-button-create,
+.todo-button {
 	background: #ff6f47;
 	color: white;
 	border: none;
@@ -44,12 +46,14 @@ form {
 .trash-btn:hover,
 .complete-btn:hover,
 .modal-close:hover,
-.todo-button-create:hover {
+.todo-button-create:hover,
+.todo-button:hover {
 	opacity: 0.7;
 }
 
 .complete-btn,
-.todo-button-create {
+.todo-button-create,
+.todo-button {
 	background: rgba(73, 204, 73);
 }
 
@@ -74,6 +78,14 @@ form {
 	opacity: 0;
 }
 
+.popout {
+	transform: translateY(-100px);
+}
+
+.blur {
+	filter: blur(4px);
+}
+
 /*
 ---------------------------------------
 ----------------Todo's-----------------
@@ -85,14 +97,16 @@ form {
 }
 
 .todo-container {
+	margin-top: 2rem;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: baseline;
+	overflow-y: auto;
+	max-height: 80vh;
 }
 
 .todo-list {
-	min-width: 30%;
-	width: 80%;
+	min-width: 75%;
 	list-style: none;
 }
 
@@ -109,11 +123,39 @@ form {
 
 .todo li {
 	flex: 1;
+	min-height: 60px;
+}
+
+.priority {
+	display: none;
+}
+
+.project-priority {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 0.7rem;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
 }
 
 .priority--high {
 	border: 6px double red;
 	background: #e4e4e4;
+}
+
+.priority--high .priority {
+	display: block;
+	padding: 0.2rem;
+	border-radius: 15px;
+	margin: 0.5rem;
+	color: white;
+	font-size: 0.8rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: red;
+	text-align: center;
 }
 
 .createDate,
@@ -138,26 +180,6 @@ form {
 	flex: 4;
 }
 
-.project-priority {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 0.7rem;
-	border-left: 2px solid blue;
-}
-
-.priority {
-	padding: 0.2rem;
-	width: 4rem;
-	border-radius: 15px;
-	margin: 0.5rem;
-	color: white;
-	text-transform: uppercase;
-	background-color: red;
-	text-align: center;
-}
-
 /*
 ---------------------------------------
 ------------New Todo Modal-------------
@@ -165,17 +187,23 @@ form {
 */
 
 .modal-new-todo {
+	z-index: 999;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	/* height: 10vh; */
+	transition: all 0.5s ease;
 }
 
 .todoCreate-form {
 	position: relative;
 	color: white;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-direction: column;
 	border: 2px solid black;
 	min-height: 400px;
@@ -183,7 +211,7 @@ form {
 	max-width: 90vw;
 	width: 80%;
 	border-radius: 15px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: rgba(0, 0, 0, 0.8);
 	transition: all 2s ease;
 }
 

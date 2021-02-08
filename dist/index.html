@@ -26,7 +26,7 @@
 			</button>
 		</header>
 
-		<div class="modal-new-todo">
+		<div class="modal-new-todo show-modal">
 			<form class="todoCreate-form">
 				<button class="modal-close">
 					<i class="fas fa-window-close"></i>
@@ -46,7 +46,7 @@
 							id="normal"
 							name="priority"
 							value="normal"
-							class="priority"
+							class="priority-radio"
 							checked
 						/>
 						<label for="normal">Normal</label><br />
@@ -55,7 +55,7 @@
 							id="high"
 							name="priority"
 							value="high"
-							class="priority"
+							class="priority-radio"
 						/>
 						<label for="high">High</label><br />
 					</div>
@@ -68,7 +68,9 @@
 
 		<!-- <button class="todo-new" id="todo-new">New</button> -->
 		<div class="todo-container">
+			<!-- <div class="scroll-area"> -->
 			<ul class="todo-list"></ul>
+			<!-- </div> -->
 		</div>
 
 		<script src="main.js"></script>

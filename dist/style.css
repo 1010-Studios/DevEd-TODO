@@ -33,7 +33,8 @@ header {
 .complete-btn,
 .modal-close,
 .todo-button-create,
-.todo-button {
+.todo-button,
+.edit-btn {
 	background: #ff6f47;
 	color: white;
 	border: none;
@@ -47,7 +48,8 @@ header {
 .complete-btn:hover,
 .modal-close:hover,
 .todo-button-create:hover,
-.todo-button:hover {
+.todo-button:hover,
+.edit-btn:hover {
 	opacity: 0.7;
 }
 
@@ -57,8 +59,13 @@ header {
 	background: rgba(73, 204, 73);
 }
 
+.edit-btn {
+	background: blue;
+}
+
 .fa-trash,
-.fa-check {
+.fa-check,
+.fa-edit {
 	pointer-events: none;
 }
 
@@ -126,6 +133,14 @@ header {
 	min-height: 60px;
 }
 
+.project {
+	background-color: #e2c35d;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 5px;
+	padding: 5px;
+}
+
 .priority {
 	display: none;
 }
@@ -133,11 +148,11 @@ header {
 .project-priority {
 	flex: 1;
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
+	padding: 0 1rem;
+	justify-content: space-between;
 	align-items: center;
 	font-size: 0.7rem;
-	border-left: 2px solid black;
-	border-right: 2px solid black;
 }
 
 .priority--high {
@@ -145,21 +160,9 @@ header {
 	background: #e4e4e4;
 }
 
-.priority--high .priority {
-	display: block;
-	padding: 0.2rem;
-	border-radius: 15px;
-	margin: 0.5rem;
-	color: white;
-	font-size: 0.8rem;
-	font-weight: bold;
-	text-transform: uppercase;
-	background-color: red;
-	text-align: center;
-}
-
 .createDate,
 .dueDate {
+	flex: 1;
 	font-size: 0.8rem;
 	/* background: red; */
 	margin: 0;
@@ -167,8 +170,36 @@ header {
 	border-radius: 15px;
 }
 
+.todo-top {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	height: 2.5rem;
+	border: 2px solid black;
+}
 .title {
 	font-size: larger;
+}
+
+.todo-bottom {
+	border-top: 1px dashed black;
+}
+.desc {
+	font-size: 0.8rem;
+}
+
+.priority--high .priority {
+	display: block;
+	padding: 0.2rem;
+	border-radius: 5px;
+	margin: 0.5rem;
+	color: white;
+	font-size: 0.8rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: red;
+	text-align: center;
 }
 
 .todo-mid {

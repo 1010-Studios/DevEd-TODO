@@ -30,7 +30,7 @@ function toggleModal(event) {
 const taskArray = [];
 
 function testObject(event) {
-	event.preventDefault();
+	// event.preventDefault();
 	console.log('Here');
 	// createToDo();
 	console.log(createToDo());
@@ -39,12 +39,7 @@ function testObject(event) {
 }
 
 function addToDo(event) {
-	//prevent form from submitting
-	// event.preventDefault();
 	toggleModal(event);
-	// localStorage.writeStorage(todoInput.value);
-	//Clear input
-	// todoInput.value = '';
 }
 
 function deleteCheck(e) {
@@ -59,9 +54,13 @@ function deleteCheck(e) {
 		});
 	}
 
-	//Checkmark
+	//Complete
 	if (item.classList[0] === `complete-btn`) {
 		const todo = item.parentElement;
+		console.log(todo);
 		todo.classList.toggle('completed');
+		todo.completed = 'true';
 	}
+
+	//Edit
 }

@@ -14,8 +14,10 @@ const createTodo = () => {
 		if (priority[i].checked) pri = priority[i].value;
 	}
 
+	const date = new Date(dueDate.value);
+
 	localStorage.writeStorage(
-		todoFactory(title.value, desc.value, project.value, dueDate.value, pri)
+		todoFactory(title.value, desc.value, project.value, date, pri)
 	);
 
 	//Reset

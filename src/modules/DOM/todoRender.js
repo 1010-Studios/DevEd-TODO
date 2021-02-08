@@ -2,22 +2,28 @@ const renderItem = (todo) => {
 	const todoList = document.querySelector(`.todo-list`);
 	const toDoDiv = document.createElement('div');
 
+	//Rendering Dates
+	const locale = navigator.language;
+	console.log(locale);
+	const dueDate = new Date(todo.dueDate).toLocaleDateString(locale);
+	const created = new Date(todo.createDate).toLocaleDateString(locale);
+
 	toDoDiv.classList.add('todo');
 	//Priority
 	toDoDiv.classList.add(`priority--${todo.priority}`);
 
 	const todoCreated = `
 	<div class="todo-top">
-		<span class="createDate">Created: ${todo.createDate}</span> 
-		<span class="dueDate">Due: ${todo.dueDate}</span>
+		<span class="createDate">Created: ${created}</span> 
+		<span class="dueDate">Due: ${dueDate}</span>
+		<div class="project-priority">
+			<span class="project">${todo.project}</span>
+			<span class="priority"> ${todo.priority} Priority</span>
+		</div>
 	</div>
 	<div class="todo-mid">
 		<div class="div-title">
 			<span class="title">${todo.title}</span>
-		</div>
-		<div class="project-priority">
-			<span class="project">${todo.project}</span>
-			<span class="priority"> ${todo.priority} Priority</span>
 		</div>
 	</div>
 	<div class="todo-bottom">
@@ -42,6 +48,12 @@ const renderItem = (todo) => {
 	trashBTN.innerHTML = `<i class="fas fa-trash" />`;
 	trashBTN.classList.add('trash-btn');
 	toDoDiv.appendChild(trashBTN);
+
+	//Edit Button
+	const editBTN = document.createElement('button');
+	editBTN.innerHTML = `<i class="fas fa-edit" />`;
+	editBTN.classList.add('edit-btn');
+	toDoDiv.appendChild(editBTN);
 
 	//Append to List
 	todoList.appendChild(toDoDiv);

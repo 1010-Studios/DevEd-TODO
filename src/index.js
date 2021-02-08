@@ -1,17 +1,24 @@
 import localStorage from './modules/todohandlers/localStorage';
 import createToDo from './modules/todohandlers/createTodo';
+import filters from './modules/todohandlers/filters';
 
 //Selectors
 const background = document.querySelector('body');
 const todoButton = document.querySelector(`.todo-button`);
 const todoList = document.querySelector(`.todo-list`);
 const todoNew = document.querySelector(`.todo-button-create`);
+const filterButtons = document.querySelector('.filter-list');
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', localStorage.readStorage);
 todoButton.addEventListener('click', addToDo);
 todoList.addEventListener('click', deleteCheck);
 todoNew.addEventListener('click', testObject);
+filterButtons.addEventListener('click', function (e) {
+	console.log(`Step one`);
+	console.log(e.target.innerText);
+	filters.filterItems(e.target.innerText);
+});
 
 //DOM Handler
 const insertpoint = document.querySelector('.modal-new-todo');
@@ -49,9 +56,6 @@ function deleteCheck(e) {
 		const todo = item.parentElement;
 		todo.classList.add('fall');
 		localStorage.deleteStorage(todo);
-		todo.addEventListener('transitionend', function () {
-			todo.remove();
-		});
 	}
 
 	//Complete

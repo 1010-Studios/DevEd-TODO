@@ -10,9 +10,7 @@ const writeStorage = (todo) => {
 	}
 	todos.push(todo);
 	localStorage.setItem('todos', JSON.stringify(todos));
-	filters.getFilters(todos);
-	todoRender(todo);
-	// readStorage();
+	readStorage();
 };
 
 const readStorage = () => {
@@ -26,9 +24,10 @@ const readStorage = () => {
 	}
 	filters.getFilters(todos);
 
-	todos.forEach(function (todo) {
-		todoRender(todo);
-	});
+	todoRender(todos);
+	// todos.forEach(function (todo) {
+	// 	todoRender(todo);
+	// });
 };
 
 const deleteStorage = (todo) => {
@@ -38,10 +37,11 @@ const deleteStorage = (todo) => {
 	} else {
 		todos = JSON.parse(localStorage.getItem(`todos`));
 	}
-	const todoIndex = todo.children[0].innerText;
-	todos.splice(todos.indexOf(todoIndex), 1);
+	const todoIndex = todos.findIndex((o) => o.taskID == todo.id);
+	console.log(`Index of ${todo}: ${todoIndex}`);
+	todos.splice(todoIndex, 1);
 	localStorage.setItem(`todos`, JSON.stringify(todos));
-	filters.getFilters(todos);
+	readStorage();
 };
 
 export default { readStorage, writeStorage, deleteStorage };

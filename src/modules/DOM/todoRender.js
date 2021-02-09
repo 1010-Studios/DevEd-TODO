@@ -17,24 +17,25 @@ const renderItem = (todos) => {
 		toDoDiv.classList.add(`priority--${todo.priority}`);
 		toDoDiv.id = todo.taskID;
 
+		//Writing the todo
 		const todoCreated = `
-	<div class="todo-top">
-		<span class="createDate">Created: ${created}</span> 
-		<span class="dueDate">Due: ${dueDate}</span>
-		<div class="project-priority">
-			<span class="project">${todo.project}</span>
-			<span class="priority"> ${todo.priority} Priority</span>
-		</div>
-	</div>
-	<div class="todo-mid">
-		<div class="div-title">
-			<span class="title">${todo.title}</span>
-		</div>
-	</div>
-	<div class="todo-bottom">
-		<span class="desc">${todo.desc}</span>
-	</div>
-	`;
+			<div class="todo-top">
+				<span class="createDate">Created: ${created}</span> 
+				<span class="dueDate">Due: ${dueDate}</span>
+				<div class="project-priority">
+					<span class="project">${todo.project}</span>
+					<span class="priority"> ${todo.priority} Priority</span>
+				</div>
+			</div>
+			<div class="todo-mid">
+				<div class="div-title">
+					<span class="title">${todo.title}</span>
+				</div>
+			</div>
+			<div class="todo-bottom">
+				<span class="desc">${todo.desc}</span>
+			</div>
+			`;
 
 		const newToDo = document.createElement('li');
 		newToDo.classList.add('todo-item');

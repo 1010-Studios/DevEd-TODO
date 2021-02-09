@@ -10,10 +10,12 @@ const writeStorage = (todo) => {
 
 const readStorage = () => {
 	const todoList = document.querySelector(`.todo-list`);
+	const curFilter = JSON.parse(localStorage.getItem('ActiveFilter'));
 	let todos = localStorageCheck();
 	filters.getFilters(todos);
 
-	todoRender(todos);
+	sendtoRender(curFilter);
+	// return todos;
 };
 
 const deleteStorage = (todo) => {
@@ -23,8 +25,6 @@ const deleteStorage = (todo) => {
 	localStorage.setItem(`todos`, JSON.stringify(todos));
 	readStorage();
 };
-
-const editStorage = (todo) => {};
 
 const setCompleted = (todo) => {
 	let todos = localStorageCheck();
@@ -49,4 +49,17 @@ const locateIndex = (lookupValue, lookupProps) => {
 	return todoIndex;
 };
 
-export default { readStorage, writeStorage, deleteStorage, setCompleted };
+const sendtoRender = (activeFilter) => {
+	console.log(filters.filterItems(activeFilter));
+	localStorage.setItem('ActiveFilter', JSON.stringify(activeFilter));
+
+	todoRender(filters.filterItems(activeFilter));
+};
+
+export default {
+	readStorage,
+	writeStorage,
+	deleteStorage,
+	setCompleted,
+	sendtoRender,
+};

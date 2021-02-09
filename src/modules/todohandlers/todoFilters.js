@@ -16,13 +16,15 @@ const getFilters = (todos) => {
 
 const filterItems = (filter) => {
 	const todos = JSON.parse(localStorage.getItem('todos'));
+	let filtered = [];
 	console.log(filter);
-	if (filter == `View All`) todoRender(todos);
-	else if (filter == `Undefined`) todoRender(['']);
+	if (filter == `View All` || filter == '' || filter == undefined)
+		filtered = todos;
 	else {
-		let filtered = todos.filter((o) => o.project === filter);
-		todoRender(filtered);
+		filtered = todos.filter((o) => o.project === filter);
 	}
+	// todoRender(filtered);
+	return filtered;
 };
 
 export default { getFilters, filterItems };

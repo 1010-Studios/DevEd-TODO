@@ -1,4 +1,5 @@
 import localStorage from './modules/todohandlers/localStorage';
+import todoRender from './modules/DOM/todoRender';
 import createToDo from './modules/todohandlers/createTodo';
 import filters from './modules/todohandlers/todoFilters';
 
@@ -18,7 +19,8 @@ filterButtons.addEventListener('click', function (e) {
 	//I want to implement multiple filters here
 	//Probably by creating an array
 	// e.target.classList.toggle('active');
-	filters.filterItems(e.target.innerText);
+	// filters.filterItems(e.target.innerText);
+	localStorage.sendtoRender(e.target.innerText);
 });
 
 //DOM Handler
@@ -59,9 +61,10 @@ function deleteCheck(e) {
 	//Complete
 	if (item.classList[0] === `complete-btn`) {
 		const todo = item.parentElement;
-		// todo.classList.toggle('completed');
 		localStorage.setCompleted(todo);
 	}
 
 	//Edit
 }
+
+localStorage.readStorage();

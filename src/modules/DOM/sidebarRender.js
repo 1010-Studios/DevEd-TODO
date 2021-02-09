@@ -1,13 +1,17 @@
-const sidebarRender = (filter) => {
+const sidebarRender = (filterArr) => {
 	const sidebar = document.querySelector('.filter-list');
-	const filterItem = document.createElement('li');
-	filterItem.className = 'filter-btn';
+	sidebar.innerHTML = '';
 
-	//Blanks handling
-	if (filter !== '') filterItem.innerText = filter;
-	else filterItem.innerText = 'Undefined';
+	filterArr.forEach((filter) => {
+		const sidebar = document.querySelector('.filter-list');
+		const filterItem = document.createElement('li');
+		filterItem.className = 'filter-btn';
+		//Blanks handling
+		if (filter !== '') filterItem.innerText = filter;
+		else filterItem.innerText = 'Undefined';
 
-	sidebar.appendChild(filterItem);
+		sidebar.appendChild(filterItem);
+	});
 };
 
 export default sidebarRender;

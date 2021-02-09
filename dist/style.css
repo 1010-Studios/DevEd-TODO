@@ -20,7 +20,7 @@ header {
 	min-height: 5vh;
 	max-height: 200px;
 	display: flex;
-	align-items: center;
+	align-items: left;
 	justify-content: center;
 }
 
@@ -58,6 +58,10 @@ header {
 .todo-button-create,
 .todo-button {
 	background: rgba(73, 204, 73);
+}
+
+.todo-button {
+	max-width: 100px;
 }
 
 .edit-btn {
@@ -138,6 +142,10 @@ header {
 }
 .filter-list li:hover {
 	opacity: 0.7;
+}
+
+.active {
+	border: 2px solid gold;
 }
 
 .list {

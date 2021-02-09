@@ -1,6 +1,6 @@
 import localStorage from './modules/todohandlers/localStorage';
 import createToDo from './modules/todohandlers/createTodo';
-import filters from './modules/todohandlers/filters';
+import filters from './modules/todohandlers/todoFilters';
 
 //Selectors
 const background = document.querySelector('body');
@@ -13,15 +13,16 @@ const filterButtons = document.querySelector('.filter-list');
 document.addEventListener('DOMContentLoaded', localStorage.readStorage);
 todoButton.addEventListener('click', addToDo);
 todoList.addEventListener('click', deleteCheck);
-todoNew.addEventListener('click', testObject);
+todoNew.addEventListener('click', createTodo);
 filterButtons.addEventListener('click', function (e) {
-	console.log(`Step one`);
-	console.log(e.target.innerText);
+	//I want to implement multiple filters here
+	//Probably by creating an array
+	// e.target.classList.toggle('active');
 	filters.filterItems(e.target.innerText);
 });
 
 //DOM Handler
-const insertpoint = document.querySelector('.modal-new-todo');
+const modalView = document.querySelector('.modal-new-todo');
 
 //close button
 const closeButton = document.querySelector('.modal-close');
@@ -29,19 +30,16 @@ closeButton.addEventListener('click', toggleModal);
 
 function toggleModal(event) {
 	event.preventDefault();
-	insertpoint.classList.toggle('show-modal');
+	modalView.classList.toggle('show-modal');
 	todoList.classList.toggle(`blur`);
 }
 
-//Functions
+//Functions for Event Listeners
 const taskArray = [];
 
-function testObject(event) {
-	// event.preventDefault();
-	// console.log('Here');
+function createTodo(event) {
+	event.preventDefault();
 	createToDo();
-	// console.log(createToDo());
-	// console.log(taskArray);
 	toggleModal(event);
 }
 

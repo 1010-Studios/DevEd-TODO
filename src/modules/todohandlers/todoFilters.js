@@ -2,26 +2,27 @@ import sidebarRender from '../DOM/sidebarRender';
 import todoRender from '../DOM/todoRender';
 
 const getFilters = (todos) => {
-	let filterArr = [];
-	const sidebar = document.querySelector('.filter-list');
-	sidebar.innerHTML = '';
+	//Dynamically creates filter lists on the sidebar
+	let filterArr = ['View All'];
 
 	todos.forEach((el) => {
 		filterArr.push(el.project);
 	});
 
 	const filterSet = new Set(filterArr);
-	filterSet.forEach((filter) => {
-		sidebarRender(filter);
-	});
+
+	sidebarRender(filterSet);
 };
 
 const filterItems = (filter) => {
-	console.log(`Got here! Yay!`);
 	const todos = JSON.parse(localStorage.getItem('todos'));
-	console.log(todos);
-	let filterOutput = todos.filter((o) => o.project === filter);
-	todoRender(filterOutput);
+	console.log(filter);
+	if (filter == `View All`) todoRender(todos);
+	else if (filter == `Undefined`) todoRender(['']);
+	else {
+		let filtered = todos.filter((o) => o.project === filter);
+		todoRender(filtered);
+	}
 };
 
 export default { getFilters, filterItems };

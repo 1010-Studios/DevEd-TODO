@@ -1,5 +1,5 @@
 import todoRender from '../DOM/todoRender';
-import filters from './filters';
+import filters from './todoFilters';
 
 const writeStorage = (todo) => {
 	let todos;

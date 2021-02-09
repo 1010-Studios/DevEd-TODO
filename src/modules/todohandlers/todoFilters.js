@@ -1,5 +1,4 @@
 import sidebarRender from '../DOM/sidebarRender';
-import todoRender from '../DOM/todoRender';
 
 const getFilters = (todos) => {
 	//Dynamically creates filter lists on the sidebar
@@ -14,16 +13,30 @@ const getFilters = (todos) => {
 	sidebarRender(filterSet);
 };
 
+//Project Name Filtering
 const filterItems = (filter) => {
+	const filterPriority = JSON.parse(localStorage.getItem('viewPriority'));
+	const filterCompleted = JSON.parse(localStorage.getItem('viewCompleted'));
 	const todos = JSON.parse(localStorage.getItem('todos'));
 	let filtered = [];
-	console.log(filter);
 	if (filter == `View All` || filter == '' || filter == undefined)
 		filtered = todos;
 	else {
 		filtered = todos.filter((o) => o.project === filter);
 	}
-	// todoRender(filtered);
+	//Priority Filter
+	if (filterPriority !== 'all') {
+		filtered = filtered.filter((el) => el.priority === filterPriority);
+		console.log(`Here`);
+	}
+
+	//Completed Filter
+
+	if (filterCompleted !== `all`) {
+		const isTrue = filterCompleted === `true`;
+		filtered = filtered.filter((el) => el.completed === isTrue);
+	}
+
 	return filtered;
 };
 

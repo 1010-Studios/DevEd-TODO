@@ -1,5 +1,5 @@
 import todoFactory from './todoFactory';
-import localStorage from './localStorage';
+import todoMemory from './todoMemory';
 
 const createTodo = () => {
 	const title = document.querySelector('#title');
@@ -16,7 +16,7 @@ const createTodo = () => {
 
 	const date = new Date(dueDate.value);
 
-	localStorage.writeStorage(
+	todoMemory.writeStorage(
 		todoFactory(title.value, desc.value, project.value, date, pri)
 	);
 

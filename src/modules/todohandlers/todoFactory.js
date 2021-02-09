@@ -2,6 +2,9 @@ const todoFactory = (title, desc, project, dueDate, priority) => {
 	let taskID = Date.now();
 	let createDate = new Date(Date.now());
 	let completed = false;
+	title = title || `Untitled`;
+	project = project || 'Misc';
+
 	return {
 		createDate,
 		title,

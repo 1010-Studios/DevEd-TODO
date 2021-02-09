@@ -31,7 +31,35 @@ header {
 ---------------------------------------
 */
 
-.btn,
+.tag-filter-priority,
+.tag-filter-completed {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	margin: 0.2rem;
+	width: 50vw;
+	max-width: 400px;
+}
+
+.tag-filter-priority h5,
+.tag-filter-completed h5 {
+	flex: 0.5;
+}
+
+.btn {
+	flex: 1;
+	background: orange;
+	color: black;
+	border: none;
+	padding: 0.2rem;
+	margin: 0.2rem 0.4rem;
+	width: 75px;
+	cursor: pointer;
+	font-size: 0.8rem;
+	border-radius: 5px;
+	max-width: 100px;
+}
+
 .trash-btn,
 .complete-btn,
 .modal-close,
@@ -70,8 +98,7 @@ header {
 	max-height: 200px;
 }
 
-.edit-btn,
-.btn {
+.edit-btn {
 	background: blue;
 }
 
@@ -103,6 +130,10 @@ header {
 
 .blur {
 	filter: blur(4px);
+}
+
+.active {
+	border: 2px solid blue;
 }
 
 /*
@@ -138,10 +169,6 @@ header {
 }
 .filter-list li:hover {
 	opacity: 0.7;
-}
-
-.active {
-	border: 2px solid gold;
 }
 
 .list {
@@ -193,10 +220,16 @@ header {
 	font-weight: bold;
 	border-radius: 5px;
 	padding: 5px;
+	width: 50%;
+	height: 3rem;
+	border: 2px solid black;
 }
 
 .priority {
 	display: none;
+	width: 50%;
+	height: 3rem;
+	border: 2px solid black;
 }
 
 .project-priority {

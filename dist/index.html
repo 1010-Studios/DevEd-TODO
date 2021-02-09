@@ -23,12 +23,19 @@
 			<h1>tOdO List</h1>
 			<h6>-- Odin Project --</h6>
 		</header>
-		<div class="filter-buttons">
-			<span>Filter by:</span>
-			<button class="btn filter-complete">Completed</button>
-			<button class="btn filter-uncomplete">Uncomplete</button>
-			<button class="btn filter-priority">HIGH Priority</button>
-			<button class="btn filter-Date">Due Date</button>
+		<div class="tag-filter-buttons">
+			<div class="tag-filter-priority">
+				<h5>Priority:</h5>
+				<button class="btn filter-priority" value="all">All</button>
+				<button class="btn filter-priority" value="normal">Normal</button>
+				<button class="btn filter-priority" value="high">High</button>
+			</div>
+			<div class="tag-filter-completed">
+				<h5>Show:</h5>
+				<button class="btn filter-completed" value="all">All</button>
+				<button class="btn filter-completed" value="true">Complete</button>
+				<button class="btn filter-completed" value="false">Incomplete</button>
+			</div>
 		</div>
 
 		<div class="modal-new-todo show-modal">
@@ -37,9 +44,27 @@
 					<i class="fas fa-window-close"></i>
 				</button>
 				<div class="modal-new-todo-text">
-					<input required type="text" id="title" placeholder="title" />
-					<input required type="text" id="desc" placeholder="description" />
-					<input required type="text" id="project" placeholder="project" />
+					<input
+						required
+						type="text"
+						maxlength="45"
+						id="title"
+						placeholder="title"
+					/>
+					<input
+						required
+						type="text"
+						maxlength="80"
+						id="desc"
+						placeholder="description"
+					/>
+					<input
+						required
+						type="text"
+						maxlength="20"
+						id="project"
+						placeholder="project"
+					/>
 				</div>
 				<div class="todoCreate-form-radios">
 					<label for="dueDate">DueDate: </label>

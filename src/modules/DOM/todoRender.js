@@ -4,6 +4,8 @@ const renderItem = (todos) => {
 
 	const renderItems = (todo) => {
 		const toDoDiv = document.createElement('div');
+		//Completed Setting
+		if (todo.completed) toDoDiv.classList.add('completed');
 
 		//Rendering Dates
 		const locale = navigator.language;

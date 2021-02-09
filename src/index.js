@@ -59,9 +59,8 @@ function deleteCheck(e) {
 	//Complete
 	if (item.classList[0] === `complete-btn`) {
 		const todo = item.parentElement;
-		console.log(todo);
-		todo.classList.toggle('completed');
-		todo.completed = 'true';
+		// todo.classList.toggle('completed');
+		localStorage.setCompleted(todo);
 	}
 
 	//Edit

@@ -14,7 +14,8 @@ body {
 header {
 	display: flex;
 	color: white;
-	/* background: rgba(230, 230, 230, 0.6); */
+	background: rgba(0, 0, 0, 0.3);
+	padding: 1rem;
 	font-size: 1.5rem;
 	flex-direction: column;
 	min-height: 5vh;
@@ -30,6 +31,7 @@ header {
 ---------------------------------------
 */
 
+.btn,
 .trash-btn,
 .complete-btn,
 .modal-close,
@@ -45,6 +47,7 @@ header {
 	border-radius: 15px;
 }
 
+.btn:hover,
 .trash-btn:hover,
 .complete-btn:hover,
 .modal-close:hover,
@@ -61,10 +64,14 @@ header {
 }
 
 .todo-button {
-	max-width: 100px;
+	width: 7rem;
+	height: 7rem;
+	max-width: 200px;
+	max-height: 200px;
 }
 
-.edit-btn {
+.edit-btn,
+.btn {
 	background: blue;
 }
 
@@ -104,27 +111,16 @@ header {
 ---------------------------------------
 */
 .todo-container {
-	flex: 4;
-	margin-top: 2rem;
 	display: flex;
-	/* max-width: 1800px; */
-	/* justify-content: center; */
-	/* align-items: center; */
 	max-height: 80vh;
-	/* justify-content: space-between;
-	align-items: baseline;
-	overflow-y: auto;
-	max-height: 80vh; */
-	/* border: 2px solid red; */
 }
 
 .sidebar {
-	flex: 4;
-	max-width: 200px;
-	height: 80vh;
-	border-radius: 15px;
+	flex: 1;
+	max-width: 500px;
+	height: 100vh;
 	padding: 2rem;
-	background: rgba(230, 230, 230, 0.6);
+	background: rgba(230, 230, 230, 0.3);
 	text-align: center;
 	overflow-y: auto;
 }
@@ -149,6 +145,7 @@ header {
 }
 
 .list {
+	flex: 4;
 	overflow-y: auto;
 	scroll-behavior: smooth;
 	scrollbar-width: thin;
@@ -159,7 +156,7 @@ header {
 
 .todo-list {
 	flex: 4;
-	min-width: 75%;
+	max-width: 1000px;
 	list-style: none;
 	/* text-align: center; */
 }

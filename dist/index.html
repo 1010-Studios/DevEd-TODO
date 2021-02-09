@@ -21,10 +21,15 @@
 	<body>
 		<header>
 			<h1>tOdO List</h1>
-			<button class="todo-button" typle="submit">
-				<i class="fas fa-plus-square"> New Task</i>
-			</button>
+			<h6>-- Odin Project --</h6>
 		</header>
+		<div class="filter-buttons">
+			<span>Filter by:</span>
+			<button class="btn filter-complete">Completed</button>
+			<button class="btn filter-uncomplete">Uncomplete</button>
+			<button class="btn filter-priority">HIGH Priority</button>
+			<button class="btn filter-Date">Due Date</button>
+		</div>
 
 		<div class="modal-new-todo show-modal">
 			<form class="todoCreate-form">
@@ -69,6 +74,9 @@
 		<!-- <button class="todo-new" id="todo-new">New</button> -->
 		<div class="todo-container">
 			<div class="sidebar">
+				<button class="todo-button" typle="submit">
+					<i class="fas fa-plus-square"> New Task</i>
+				</button>
 				<h4>Projects:</h4>
 				<h6>(Click to filter)</h6>
 				<ul class="filter-list"></ul>

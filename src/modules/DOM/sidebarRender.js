@@ -8,7 +8,8 @@ const sidebarRender = (filterArr) => {
 		filterItem.className = 'filter-btn';
 		//Blanks handling
 		if (filter !== '') filterItem.innerText = filter;
-		else filterItem.innerText = 'Undefined';
+
+		//Active filter
 
 		sidebar.appendChild(filterItem);
 	});

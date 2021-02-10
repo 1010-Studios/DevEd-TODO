@@ -20,11 +20,13 @@ const renderItem = (todos) => {
 		//Writing the todo
 		const todoCreated = `
 			<div class="todo-top">
-				<span class="createDate">Created: ${created}</span> 
-				<span class="dueDate">Due: ${dueDate}</span>
+				<div class="dates">
+					<span class="createDate">Created: ${created}</span> 
+					<span class="dueDate">Due: ${dueDate}</span>
+				</div>
 				<div class="project-priority">
-					<span class="project">${todo.project}</span>
 					<span class="priority"> ${todo.priority} Priority</span>
+					<span class="project">${todo.project}</span>
 				</div>
 			</div>
 			<div class="todo-mid">
@@ -47,18 +49,21 @@ const renderItem = (todos) => {
 		const completedBTN = document.createElement('button');
 		completedBTN.innerHTML = `<i class="fas fa-check" />`;
 		completedBTN.classList.add('complete-btn');
+		completedBTN.title = 'Complete Todo';
 		toDoDiv.appendChild(completedBTN);
 
 		//Trash Button
 		const trashBTN = document.createElement('button');
 		trashBTN.innerHTML = `<i class="fas fa-trash" />`;
 		trashBTN.classList.add('trash-btn');
+		trashBTN.title = 'Delete Todo';
 		toDoDiv.appendChild(trashBTN);
 
 		//Edit Button
 		const editBTN = document.createElement('button');
 		editBTN.innerHTML = `<i class="fas fa-edit" />`;
 		editBTN.classList.add('edit-btn');
+		editBTN.title = 'Edit Todo';
 		toDoDiv.appendChild(editBTN);
 
 		//Append to List

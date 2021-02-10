@@ -159,7 +159,6 @@ header {
 	width: 90%;
 	max-height: 80vh;
 	max-width: 2000px;
-	/* border: 2px solid blue; */
 }
 
 .sidebar {
@@ -170,7 +169,7 @@ header {
 	text-align: center;
 	overflow-y: auto;
 	max-width: 20rem;
-	border: 2px solid blue;
+	border-radius: 5px;
 }
 
 .filter-list {
@@ -231,37 +230,63 @@ header {
 	min-height: 60px;
 }
 
-.project {
+.todo-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border-radius: 5px;
+	height: 2.5rem;
+	border: 2px solid black;
+}
+
+.dates {
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+}
+
+/*Project/Priority Container*/
+.project-priority {
+	flex: 1;
+	display: flex;
+	padding: 0 1rem;
+	justify-content: flex-end;
+	align-items: center;
+	height: 3rem;
+	font-size: 0.7rem;
+}
+
+.project,
+.priority {
 	background-color: #e2c35d;
 	text-align: center;
 	font-weight: bold;
 	border-radius: 5px;
 	padding: 5px;
 	width: 50%;
-	height: 3rem;
+	margin: 0.25rem;
+	/* min-width: 4rem; */
+	height: 100%;
 	border: 2px solid black;
 }
 
 .priority {
 	display: none;
-	width: 50%;
-	height: 3rem;
-	border: 2px solid black;
-}
-
-.project-priority {
-	flex: 1;
-	display: flex;
-	/* flex-direction: column; */
-	padding: 0 1rem;
-	justify-content: space-between;
-	align-items: center;
-	font-size: 0.7rem;
 }
 
 .priority--high {
 	border: 6px double red;
 	background: #e4e4e4;
+}
+
+.priority--high .priority {
+	display: block;
+	padding: 0.2rem;
+	color: white;
+	font-size: 0.8rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: red;
 }
 
 .createDate,
@@ -273,14 +298,6 @@ header {
 	border-radius: 15px;
 }
 
-.todo-top {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 5px;
-	height: 2.5rem;
-	border: 2px solid black;
-}
 .title {
 	font-size: larger;
 }
@@ -290,19 +307,6 @@ header {
 }
 .desc {
 	font-size: 0.8rem;
-}
-
-.priority--high .priority {
-	display: block;
-	padding: 0.2rem;
-	border-radius: 5px;
-	margin: 0.5rem;
-	color: white;
-	font-size: 0.8rem;
-	font-weight: bold;
-	text-transform: uppercase;
-	background-color: red;
-	text-align: center;
 }
 
 .todo-mid {
@@ -342,7 +346,8 @@ header {
 	border: 2px solid black;
 	min-height: 400px;
 	min-width: 300px;
-	max-width: 90vw;
+	width: 90vw;
+	max-width: 600px;
 	width: 80%;
 	border-radius: 15px;
 	background-color: rgba(0, 0, 0, 0.8);

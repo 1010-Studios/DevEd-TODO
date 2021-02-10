@@ -30,7 +30,7 @@ filterButtons.addEventListener('click', function (e) {
 	e.target.classList.add('active');
 });
 
-//Tag Filters
+//Tag Filters (Priority/Complete Status)
 priorityFilter.forEach((el) =>
 	el.addEventListener('click', function (e) {
 		priorityFilter.forEach((item) => item.classList.remove('active'));
@@ -74,24 +74,27 @@ function addToDo(event) {
 	toggleModal(event);
 }
 
+//Todo functionality Buttons
 function deleteCheck(e) {
 	const item = e.target;
 	//Delete
 	if (item.classList[0] === `trash-btn`) {
 		const todo = item.parentElement;
 		todo.classList.add('fall');
-		// todoMemory.deleteStorage(todo);
 		todoStates.deleteTodo(todo);
 	}
 
 	//Complete
 	if (item.classList[0] === `complete-btn`) {
 		const todo = item.parentElement;
-		// todoMemory.setCompleted(todo);
 		todoStates.setComplete(todo);
 	}
 
 	//Edit
+	if (item.classList[0] === `edit-btn`) {
+		const todo = item.parentElement;
+		//Edit behaviour here!
+	}
 }
 
 todoMemory.readStorage();

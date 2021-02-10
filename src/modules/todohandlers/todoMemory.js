@@ -17,23 +17,6 @@ const readStorage = () => {
 	// return todos;
 };
 
-const deleteStorage = (todo) => {
-	let todos = localStorageCheck();
-	const todoIndex = locateIndex(todo.id, `taskID`);
-	todos.splice(todoIndex, 1);
-	localStorage.setItem(`todos`, JSON.stringify(todos));
-	readStorage();
-};
-
-const setCompleted = (todo) => {
-	let todos = localStorageCheck();
-	const todoIndex = locateIndex(todo.id, `taskID`);
-	const bool = todos[todoIndex].completed;
-	todos[todoIndex].completed = !bool;
-	localStorage.setItem(`todos`, JSON.stringify(todos));
-	readStorage();
-};
-
 const localStorageCheck = () => {
 	if (localStorage.getItem(`todos`) === null) {
 		return [];
@@ -61,8 +44,7 @@ const sendtoRender = (activeFilter) => {
 export default {
 	readStorage,
 	writeStorage,
-	deleteStorage,
-	setCompleted,
+	locateIndex,
 	sendtoRender,
 	localStorageCheck,
 };

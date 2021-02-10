@@ -1,4 +1,5 @@
 import todoMemory from './modules/todohandlers/todoMemory';
+import todoStates from './modules/todohandlers/todoStates';
 import todoRender from './modules/DOM/todoRender';
 import createToDo from './modules/todohandlers/createTodo';
 import filters from './modules/todohandlers/todoFilters';
@@ -47,29 +48,6 @@ completeFilter.forEach((el) =>
 	})
 );
 
-//Page Loading
-
-// //Set Default Active locations
-// function setActiveFilters() {
-// 	const setPriority = JSON.parse(localStorage.getItem(`viewPriority`));
-// 	priorityFilter.forEach((el) => {
-// 		if (el.value === setPriority) el.classList.add('active');
-// 	});
-// 	const setComplete = JSON.parse(localStorage.getItem(`viewCompleted`));
-// 	completeFilter.forEach((el) => {
-// 		if (el.value == setComplete) el.classList.add('active');
-// 	});
-
-// 	const setProject = JSON.parse(localStorage.getItem(`viewProject`));
-// 	const projectFilter = document.querySelectorAll(`.filter-btn`);
-// 	console.log(projectFilter);
-// 	console.log(setProject);
-// 	//?????
-// 	projectFilter.forEach((el) => {
-// 		if (el.innerText === setProject) el.classList.add('active');
-// 	});
-// }
-
 //DOM Handler
 const modalView = document.querySelector('.modal-new-todo');
 
@@ -102,18 +80,18 @@ function deleteCheck(e) {
 	if (item.classList[0] === `trash-btn`) {
 		const todo = item.parentElement;
 		todo.classList.add('fall');
-		todoMemory.deleteStorage(todo);
+		// todoMemory.deleteStorage(todo);
+		todoStates.deleteTodo(todo);
 	}
 
 	//Complete
 	if (item.classList[0] === `complete-btn`) {
 		const todo = item.parentElement;
-		todoMemory.setCompleted(todo);
+		// todoMemory.setCompleted(todo);
+		todoStates.setComplete(todo);
 	}
 
 	//Edit
 }
 
 todoMemory.readStorage();
-
-// setActiveFilters();

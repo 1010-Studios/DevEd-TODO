@@ -11,8 +11,16 @@ body {
 	overflow: hidden;
 }
 
-header {
+.container {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+header {
+	width: 100%;
+	/* display: flex; */
 	color: white;
 	background: rgba(0, 0, 0, 0.3);
 	padding: 1rem;
@@ -20,9 +28,14 @@ header {
 	flex-direction: column;
 	min-height: 5vh;
 	max-height: 200px;
-	display: flex;
-	align-items: left;
-	justify-content: center;
+	/* display: flex; */
+	/* align-items: left; */
+	/* justify-content: center; */
+}
+
+.tag-filter-buttons {
+	width: 100%;
+	margin-bottom: 1rem;
 }
 
 /*
@@ -143,17 +156,21 @@ header {
 */
 .todo-container {
 	display: flex;
+	width: 90%;
 	max-height: 80vh;
+	max-width: 2000px;
+	/* border: 2px solid blue; */
 }
 
 .sidebar {
 	flex: 1;
-	max-width: 500px;
 	height: 100vh;
 	padding: 2rem;
 	background: rgba(230, 230, 230, 0.3);
 	text-align: center;
 	overflow-y: auto;
+	max-width: 20rem;
+	border: 2px solid blue;
 }
 
 .filter-list {

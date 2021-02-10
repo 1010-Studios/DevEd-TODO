@@ -19,95 +19,97 @@
 	</head>
 
 	<body>
-		<header>
-			<h1>tOdO List</h1>
-			<h6>-- Odin Project --</h6>
-		</header>
-		<div class="tag-filter-buttons">
-			<div class="tag-filter-priority">
-				<h5>Priority:</h5>
-				<button class="btn filter-priority" value="all">All</button>
-				<button class="btn filter-priority" value="normal">Normal</button>
-				<button class="btn filter-priority" value="high">High</button>
-			</div>
-			<div class="tag-filter-completed">
-				<h5>Show:</h5>
-				<button class="btn filter-completed" value="all">All</button>
-				<button class="btn filter-completed" value="true">Complete</button>
-				<button class="btn filter-completed" value="false">Incomplete</button>
-			</div>
-		</div>
-
-		<div class="modal-new-todo show-modal">
-			<form class="todoCreate-form">
-				<button class="modal-close">
-					<i class="fas fa-window-close"></i>
-				</button>
-				<div class="modal-new-todo-text">
-					<input
-						required
-						type="text"
-						maxlength="45"
-						id="title"
-						placeholder="title"
-					/>
-					<input
-						required
-						type="text"
-						maxlength="80"
-						id="desc"
-						placeholder="description"
-					/>
-					<input
-						required
-						type="text"
-						maxlength="20"
-						id="project"
-						placeholder="project"
-					/>
+		<div class="container">
+			<header>
+				<h1>tOdO List</h1>
+				<h6>-- Odin Project --</h6>
+			</header>
+			<div class="tag-filter-buttons">
+				<div class="tag-filter-priority">
+					<h5>Priority:</h5>
+					<button class="btn filter-priority" value="all">All</button>
+					<button class="btn filter-priority" value="normal">Normal</button>
+					<button class="btn filter-priority" value="high">High</button>
 				</div>
-				<div class="todoCreate-form-radios">
-					<label for="dueDate">DueDate: </label>
-					<input required type="date" id="dueDate" /> <br />
-					<span> Priority:</span>
-					<div>
-						<input
-							type="radio"
-							id="normal"
-							name="priority"
-							value="normal"
-							class="priority-radio"
-							checked
-						/>
-						<label for="normal">Normal</label><br />
-						<input
-							type="radio"
-							id="high"
-							name="priority"
-							value="high"
-							class="priority-radio"
-						/>
-						<label for="high">High</label><br />
-					</div>
-					<button type="submit" class="todo-button-create">
-						<i class="fas fa-plus-square"> Create! </i>
+				<div class="tag-filter-completed">
+					<h5>Show:</h5>
+					<button class="btn filter-completed" value="all">All</button>
+					<button class="btn filter-completed" value="true">Complete</button>
+					<button class="btn filter-completed" value="false">Incomplete</button>
+				</div>
+			</div>
+
+			<div class="modal-new-todo show-modal">
+				<form class="todoCreate-form">
+					<button class="modal-close">
+						<i class="fas fa-window-close"></i>
 					</button>
-				</div>
-			</form>
-		</div>
-
-		<!-- <button class="todo-new" id="todo-new">New</button> -->
-		<div class="todo-container">
-			<div class="sidebar">
-				<button class="todo-button" typle="submit">
-					<i class="fas fa-plus-square"> New Task</i>
-				</button>
-				<h4>Projects:</h4>
-				<h6>(Click to filter)</h6>
-				<ul class="filter-list"></ul>
+					<div class="modal-new-todo-text">
+						<input
+							required
+							type="text"
+							maxlength="45"
+							id="title"
+							placeholder="title"
+						/>
+						<input
+							required
+							type="text"
+							maxlength="80"
+							id="desc"
+							placeholder="description"
+						/>
+						<input
+							required
+							type="text"
+							maxlength="20"
+							id="project"
+							placeholder="project"
+						/>
+					</div>
+					<div class="todoCreate-form-radios">
+						<label for="dueDate">DueDate: </label>
+						<input required type="date" id="dueDate" /> <br />
+						<span> Priority:</span>
+						<div>
+							<input
+								type="radio"
+								id="normal"
+								name="priority"
+								value="normal"
+								class="priority-radio"
+								checked
+							/>
+							<label for="normal">Normal</label><br />
+							<input
+								type="radio"
+								id="high"
+								name="priority"
+								value="high"
+								class="priority-radio"
+							/>
+							<label for="high">High</label><br />
+						</div>
+						<button type="submit" class="todo-button-create">
+							<i class="fas fa-plus-square"> Create! </i>
+						</button>
+					</div>
+				</form>
 			</div>
-			<div class="list">
-				<ul class="todo-list"></ul>
+
+			<!-- <button class="todo-new" id="todo-new">New</button> -->
+			<div class="todo-container">
+				<div class="sidebar">
+					<button class="todo-button" typle="submit">
+						<i class="fas fa-plus-square"> New Task</i>
+					</button>
+					<h4>Projects:</h4>
+					<h6>(Click to filter)</h6>
+					<ul class="filter-list"></ul>
+				</div>
+				<div class="list">
+					<ul class="todo-list"></ul>
+				</div>
 			</div>
 		</div>
 

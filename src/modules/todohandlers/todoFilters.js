@@ -1,4 +1,5 @@
 import sidebarRender from '../DOM/sidebarRender';
+import todoMemory from '../todohandlers/todoMemory';
 
 const getFilters = (todos) => {
 	//Dynamically creates filter lists on the sidebar
@@ -17,9 +18,14 @@ const getFilters = (todos) => {
 const filterItems = (filter) => {
 	const filterPriority = JSON.parse(localStorage.getItem('viewPriority'));
 	const filterCompleted = JSON.parse(localStorage.getItem('viewCompleted'));
-	const todos = JSON.parse(localStorage.getItem('todos'));
+	const todos = todoMemory.localStorageCheck();
 	let filtered = [];
-	if (filter == `View All` || filter == '' || filter == undefined)
+	if (
+		filter == `View All` ||
+		filter == '' ||
+		filter == undefined ||
+		filter == null
+	)
 		filtered = todos;
 	else {
 		filtered = todos.filter((o) => o.project === filter);
@@ -27,7 +33,6 @@ const filterItems = (filter) => {
 	//Priority Filter
 	if (filterPriority !== 'all') {
 		filtered = filtered.filter((el) => el.priority === filterPriority);
-		console.log(`Here`);
 	}
 
 	//Completed Filter

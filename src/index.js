@@ -24,6 +24,7 @@ filterButtons.addEventListener('click', function (e) {
 	console.log(filterButtons);
 	filterButtons.childNodes.forEach((el) => {
 		el.classList.remove('active');
+		localStorage.setItem('viewProject', JSON.stringify(e.target.innerText));
 	});
 	e.target.classList.add('active');
 });
@@ -45,6 +46,29 @@ completeFilter.forEach((el) =>
 		todoMemory.readStorage();
 	})
 );
+
+//Page Loading
+
+// //Set Default Active locations
+// function setActiveFilters() {
+// 	const setPriority = JSON.parse(localStorage.getItem(`viewPriority`));
+// 	priorityFilter.forEach((el) => {
+// 		if (el.value === setPriority) el.classList.add('active');
+// 	});
+// 	const setComplete = JSON.parse(localStorage.getItem(`viewCompleted`));
+// 	completeFilter.forEach((el) => {
+// 		if (el.value == setComplete) el.classList.add('active');
+// 	});
+
+// 	const setProject = JSON.parse(localStorage.getItem(`viewProject`));
+// 	const projectFilter = document.querySelectorAll(`.filter-btn`);
+// 	console.log(projectFilter);
+// 	console.log(setProject);
+// 	//?????
+// 	projectFilter.forEach((el) => {
+// 		if (el.innerText === setProject) el.classList.add('active');
+// 	});
+// }
 
 //DOM Handler
 const modalView = document.querySelector('.modal-new-todo');
@@ -91,3 +115,5 @@ function deleteCheck(e) {
 }
 
 todoMemory.readStorage();
+
+// setActiveFilters();

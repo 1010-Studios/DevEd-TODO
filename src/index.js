@@ -22,12 +22,14 @@ todoNew.addEventListener('click', createTodo);
 //Sidebar Filters
 filterButtons.addEventListener('click', function (e) {
 	todoMemory.sendtoRender(e.target.innerText);
-	console.log(filterButtons);
-	filterButtons.childNodes.forEach((el) => {
-		el.classList.remove('active');
-		localStorage.setItem('viewProject', JSON.stringify(e.target.innerText));
-	});
-	e.target.classList.add('active');
+	console.log(e.target.innerText);
+	if (e.target.className === `filter-btn`) {
+		filterButtons.childNodes.forEach((el) => {
+			el.classList.remove('active');
+			localStorage.setItem('viewProject', JSON.stringify(e.target.innerText));
+		});
+		e.target.classList.add('active');
+	}
 });
 
 //Tag Filters (Priority/Complete Status)
@@ -94,6 +96,7 @@ function deleteCheck(e) {
 	if (item.classList[0] === `edit-btn`) {
 		const todo = item.parentElement;
 		//Edit behaviour here!
+		alert(`...edit functionality is not yet implemented =(....`);
 	}
 }
 

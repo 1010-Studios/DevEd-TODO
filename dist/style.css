@@ -20,17 +20,14 @@ body {
 
 header {
 	width: 100%;
-	/* display: flex; */
+	display: flex;
 	color: white;
 	background: rgba(0, 0, 0, 0.3);
 	padding: 1rem;
 	font-size: 1.5rem;
-	flex-direction: column;
 	min-height: 5vh;
 	max-height: 200px;
-	/* display: flex; */
-	/* align-items: left; */
-	/* justify-content: center; */
+	justify-content: space-between;
 }
 
 .tag-filter-buttons {

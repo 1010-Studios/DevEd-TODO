@@ -60,11 +60,11 @@ const renderItem = (todos) => {
 		toDoDiv.appendChild(trashBTN);
 
 		//Edit Button
-		const editBTN = document.createElement('button');
-		editBTN.innerHTML = `<i class="fas fa-edit" />`;
-		editBTN.classList.add('edit-btn');
-		editBTN.title = 'Edit Todo';
-		toDoDiv.appendChild(editBTN);
+		// const editBTN = document.createElement('button');
+		// editBTN.innerHTML = `<i class="fas fa-edit" />`;
+		// editBTN.classList.add('edit-btn');
+		// editBTN.title = 'Edit Todo';
+		// toDoDiv.appendChild(editBTN);
 
 		//Append to List
 		todoList.appendChild(toDoDiv);

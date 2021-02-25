@@ -6,6 +6,7 @@ const sidebarRender = (filterArr) => {
 		const sidebar = document.querySelector('.filter-list');
 		const filterItem = document.createElement('li');
 		filterItem.classList.add('filter-btn');
+
 		//Blanks handling
 		if (filter !== '') filterItem.innerText = filter;
 
@@ -20,20 +21,20 @@ const sidebarRender = (filterArr) => {
 function setActiveFilters() {
 	const priorityFilter = document.querySelectorAll('.filter-priority');
 	const completeFilter = document.querySelectorAll('.filter-completed');
-	const setPriority = JSON.parse(localStorage.getItem(`viewPriority`));
+	const setPriority = localStorage.getItem(`viewPriority`);
 	const setComplete = JSON.parse(localStorage.getItem(`viewCompleted`));
-	const setProject = JSON.parse(localStorage.getItem(`viewProject`));
+	const setProject = JSON.parse(localStorage.getItem(`ActiveFilter`));
 	const projectFilter = document.querySelectorAll(`.filter-btn`);
 
 	priorityFilter.forEach((el) => {
-		if (el.value === setPriority) el.classList.add('active');
+		if (el.value == setPriority) el.classList.add('active');
 	});
 	completeFilter.forEach((el) => {
 		if (el.value == setComplete) el.classList.add('active');
 	});
 
 	projectFilter.forEach((el) => {
-		if (el.innerText === setProject) el.classList.add('active');
+		if (el.innerText == setProject) el.classList.add('active');
 	});
 }
 

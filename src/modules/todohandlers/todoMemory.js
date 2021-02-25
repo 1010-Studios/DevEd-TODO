@@ -32,6 +32,8 @@ const locateIndex = (lookupValue, lookupProps) => {
 };
 
 const sendtoRender = (activeFilter) => {
+	console.log(activeFilter);
+	if (activeFilter === null) activeFilter = 'View All';
 	localStorage.setItem('ActiveFilter', JSON.stringify(activeFilter));
 	localStorage.setItem(
 		'CurrentView',

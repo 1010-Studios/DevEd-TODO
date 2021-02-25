@@ -155,7 +155,8 @@ header {
 	display: flex;
 	width: 90%;
 	max-height: 80vh;
-	max-width: 2000px;
+	width: 100vw;
+	margin: 0;
 }
 
 .sidebar {
@@ -165,7 +166,7 @@ header {
 	background: rgba(230, 230, 230, 0.3);
 	text-align: center;
 	overflow-y: auto;
-	max-width: 20rem;
+	max-width: 10rem;
 	border-radius: 5px;
 }
 
@@ -261,6 +262,7 @@ header {
 	border-radius: 5px;
 	padding: 5px;
 	width: 50%;
+	max-width: 100px;
 	margin: 0.25rem;
 	/* min-width: 4rem; */
 	height: 100%;

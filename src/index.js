@@ -4,6 +4,8 @@ import todoRender from './modules/DOM/todoRender';
 import createToDo from './modules/todohandlers/createTodo';
 import filters from './modules/todohandlers/todoFilters';
 import todoFilters from './modules/todohandlers/todoFilters';
+import demo from './modules/demoMode/demo';
+import todoFactory from './modules/todohandlers/todoFactory';
 
 //Selectors
 const todoButton = document.querySelector(`.todo-button`);
@@ -12,12 +14,17 @@ const todoNew = document.querySelector(`.todo-button-create`);
 const filterButtons = document.querySelector('.filter-list');
 const priorityFilter = document.querySelectorAll('.filter-priority');
 const completeFilter = document.querySelectorAll('.filter-completed');
+const demoModeBtn = document.querySelector('.demo-btn');
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', todoMemory.readStorage);
 todoButton.addEventListener('click', addToDo);
 todoList.addEventListener('click', deleteCheck);
 todoNew.addEventListener('click', createTodo);
+demoModeBtn.addEventListener('click', function () {
+	localStorage.clear();
+	demo.forEach((todo) => todoMemory.writeStorage(todo));
+});
 
 //Sidebar Filters
 filterButtons.addEventListener('click', function (e) {
